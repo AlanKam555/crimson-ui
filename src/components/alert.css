@@ -1,0 +1,81 @@
+/*
+ * Alerts. Border style differs by state so the message is not carried by color alone.
+ * success solid, warning dashed, error double, info dotted.
+ */
+
+.alert {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+  padding: var(--space-4);
+  border: 2px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  background: var(--color-surface-muted);
+  color: var(--color-text);
+}
+
+.alert p {
+  margin: 0;
+}
+
+.alert-title {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  margin: 0;
+  font-weight: var(--weight-bold);
+}
+
+.alert-mark {
+  display: inline-grid;
+  place-items: center;
+  width: 1.35rem;
+  height: 1.35rem;
+  border-radius: var(--radius-full);
+  background: var(--color-surface);
+  font-size: var(--text-xs);
+  font-weight: var(--weight-bold);
+  line-height: 1;
+}
+
+.alert-success {
+  background: var(--color-success-subtle);
+  border-color: var(--color-success);
+  border-style: solid;
+}
+
+.alert-success .alert-title {
+  color: var(--color-success-text);
+}
+
+.alert-warning {
+  background: var(--color-warning-subtle);
+  border-color: var(--color-warning);
+  border-style: dashed;
+}
+
+.alert-warning .alert-title {
+  color: var(--color-warning-text);
+}
+
+.alert-error {
+  background: var(--color-error-subtle);
+  border-color: var(--color-error);
+  border-style: double;
+  border-width: 4px;
+}
+
+.alert-error .alert-title {
+  color: var(--color-error-text);
+}
+
+.alert-info {
+  background: var(--color-info-subtle);
+  border-color: var(--color-info);
+  border-style: dotted;
+  border-width: 3px;
+}
+
+.alert-info .alert-title {
+  color: var(--color-info-text);
+}

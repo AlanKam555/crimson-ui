@@ -1,0 +1,314 @@
+/* Fields, text controls, choices, and the switch. */
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  margin-bottom: var(--space-4);
+}
+
+.field:last-child {
+  margin-bottom: 0;
+}
+
+.label {
+  color: var(--color-text);
+  font-size: var(--text-sm);
+  font-weight: var(--weight-semibold);
+  line-height: var(--leading-snug);
+}
+
+.required {
+  color: var(--color-error-text);
+}
+
+.field-hint,
+.field-message {
+  margin: 0;
+  font-size: var(--text-sm);
+  line-height: var(--leading-snug);
+}
+
+.field-hint {
+  color: var(--color-text-muted);
+  font-weight: var(--weight-normal);
+}
+
+.field-message {
+  font-weight: var(--weight-semibold);
+}
+
+.input,
+.select,
+.textarea {
+  width: 100%;
+  min-height: 2.75rem;
+  padding: var(--space-2) var(--space-3);
+  border: 2px solid var(--color-border);
+  border-radius: var(--radius-md);
+  background: var(--color-surface);
+  color: var(--color-text);
+  line-height: var(--leading-snug);
+  transition:
+    border-color var(--duration-fast) var(--ease-standard),
+    background-color var(--duration-fast) var(--ease-standard);
+}
+
+.textarea {
+  min-height: 8rem;
+  resize: vertical;
+}
+
+.input::placeholder,
+.textarea::placeholder {
+  color: var(--color-text-muted);
+  opacity: 1;
+}
+
+.input:hover,
+.select:hover,
+.textarea:hover {
+  border-color: var(--color-text-muted);
+}
+
+.input:focus-visible,
+.select:focus-visible,
+.textarea:focus-visible {
+  border-color: var(--color-primary);
+}
+
+.input:disabled,
+.select:disabled,
+.textarea:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  background: var(--color-surface-muted);
+}
+
+.input:-webkit-autofill,
+.textarea:-webkit-autofill {
+  -webkit-text-fill-color: var(--color-text);
+  box-shadow: 0 0 0 1000px var(--color-surface) inset;
+}
+
+.field.is-invalid .input,
+.field.is-invalid .select,
+.field.is-invalid .textarea,
+.input.is-invalid,
+.select.is-invalid,
+.textarea.is-invalid {
+  border-color: var(--color-error);
+}
+
+.field.is-invalid .field-message {
+  color: var(--color-error-text);
+}
+
+.field.is-valid .input,
+.field.is-valid .select,
+.field.is-valid .textarea,
+.input.is-valid,
+.select.is-valid,
+.textarea.is-valid {
+  border-color: var(--color-success);
+}
+
+.field.is-valid .field-message {
+  color: var(--color-success-text);
+}
+
+.select-wrap {
+  position: relative;
+  display: block;
+}
+
+.select-wrap .select {
+  padding-right: 2.5rem;
+  appearance: none;
+}
+
+.select-wrap::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  right: 1rem;
+  width: 0.45rem;
+  height: 0.45rem;
+  border-right: 2px solid var(--color-text);
+  border-bottom: 2px solid var(--color-text);
+  transform: translateY(-70%) rotate(45deg);
+  pointer-events: none;
+}
+
+.form-row {
+  display: grid;
+  gap: var(--space-4);
+  margin-bottom: var(--space-4);
+}
+
+.form-row .field {
+  margin-bottom: 0;
+}
+
+@media (min-width: 40rem) {
+  .form-row {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.fieldset {
+  margin: 0 0 var(--space-4);
+  padding: var(--space-4);
+  border: 2px solid var(--color-divider);
+  border-radius: var(--radius-lg);
+}
+
+.fieldset .label,
+.fieldset legend {
+  padding: 0 var(--space-2);
+}
+
+.choice-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-4);
+}
+
+.choice {
+  position: relative;
+  display: inline-flex;
+  align-items: flex-start;
+  gap: var(--space-2);
+  color: var(--color-text);
+  font-size: var(--text-sm);
+  line-height: 1.4;
+  cursor: pointer;
+}
+
+.choice input {
+  position: absolute;
+  width: 1.25rem;
+  height: 1.25rem;
+  margin: 0;
+  opacity: 0;
+}
+
+.choice input:focus-visible {
+  outline: none;
+}
+
+.choice-control {
+  display: inline-grid;
+  place-items: center;
+  width: 1.25rem;
+  height: 1.25rem;
+  margin-top: 0.1rem;
+  border: 2px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  background: var(--color-surface);
+  flex: none;
+}
+
+.choice input[type="radio"] + .choice-control {
+  border-radius: var(--radius-full);
+}
+
+.choice input:checked + .choice-control {
+  border-color: var(--color-primary);
+  background: var(--color-primary);
+}
+
+.choice input:checked + .choice-control::after {
+  content: "";
+  width: 0.65rem;
+  height: 0.35rem;
+  border-bottom: 2px solid var(--color-on-primary);
+  border-left: 2px solid var(--color-on-primary);
+  transform: translateY(-1px) rotate(-45deg);
+}
+
+.choice input[type="radio"]:checked + .choice-control::after {
+  width: 0.5rem;
+  height: 0.5rem;
+  border: 0;
+  border-radius: var(--radius-full);
+  background: var(--color-on-primary);
+  transform: none;
+}
+
+.choice input:focus-visible + .choice-control {
+  outline: 3px solid var(--color-focus);
+  outline-offset: 3px;
+}
+
+.choice input:disabled + .choice-control,
+.choice input:disabled ~ span {
+  opacity: 0.55;
+  cursor: not-allowed;
+}
+
+.switch {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-3);
+  cursor: pointer;
+  font-size: var(--text-sm);
+  line-height: var(--leading-snug);
+}
+
+.switch input {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  opacity: 0;
+}
+
+.switch input:focus-visible {
+  outline: none;
+}
+
+.switch-ui {
+  position: relative;
+  width: 2.75rem;
+  height: 1.5rem;
+  border: 2px solid var(--color-border);
+  border-radius: var(--radius-full);
+  background: var(--color-border);
+  flex: none;
+  transition: background-color var(--duration-fast) var(--ease-standard);
+}
+
+.switch-ui::after {
+  content: "";
+  position: absolute;
+  top: 1px;
+  left: 1px;
+  width: 1.05rem;
+  height: 1.05rem;
+  border-radius: var(--radius-full);
+  background: var(--color-surface);
+  transition: transform var(--duration-fast) var(--ease-standard);
+}
+
+.switch input:checked + .switch-ui {
+  border-color: var(--color-primary);
+  background: var(--color-primary);
+}
+
+.switch input:checked + .switch-ui::after {
+  background: var(--color-on-primary);
+  transform: translateX(1.15rem);
+}
+
+.switch input:focus-visible + .switch-ui {
+  outline: 3px solid var(--color-focus);
+  outline-offset: 3px;
+}
+
+.switch input:disabled + .switch-ui,
+.switch input:disabled ~ span {
+  opacity: 0.55;
+  cursor: not-allowed;
+}

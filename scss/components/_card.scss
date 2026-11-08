@@ -1,0 +1,55 @@
+/* Cards. .card-interactive lifts on hover. Anchor cards keep body text color. */
+
+.card {
+  background: var(--color-surface);
+  color: var(--color-text);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-xl);
+  box-shadow: var(--shadow-sm);
+  overflow: hidden;
+}
+
+a.card {
+  display: block;
+  color: inherit;
+  text-decoration: none;
+}
+
+a.card:hover {
+  color: inherit;
+  text-decoration: none;
+}
+
+.card-header,
+.card-footer {
+  padding: var(--space-4) var(--space-5);
+  background: var(--color-surface-muted);
+}
+
+.card-header {
+  border-bottom: 1px solid var(--color-divider);
+}
+
+.card-footer {
+  border-top: 1px solid var(--color-divider);
+}
+
+.card-body {
+  padding: var(--space-5);
+}
+
+.card-title {
+  margin: 0 0 var(--space-2);
+  font-size: var(--text-xl);
+}
+
+.card-interactive {
+  transition:
+    transform var(--duration-base) var(--ease-standard),
+    box-shadow var(--duration-base) var(--ease-standard);
+}
+
+.card-interactive:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}

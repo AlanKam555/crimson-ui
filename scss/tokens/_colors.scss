@@ -1,0 +1,190 @@
+@use "sass:map";
+
+/// Primitive hex values. Semantic tokens reference these custom properties.
+$crimson-primitives: (
+  "crimson-50": #fff5f3,
+  "crimson-100": #fbecea,
+  "crimson-200": #f6d5d8,
+  "crimson-300": #e7b4ba,
+  "crimson-400": #d07a88,
+  "crimson-500": #e11d48,
+  "crimson-600": #be123c,
+  "crimson-700": #9f1239,
+  "crimson-800": #881337,
+  "crimson-900": #6f102c,
+  "crimson-950": #2b1216,
+  "night-950": #1a0c10,
+  "night-900": #261318,
+  "night-800": #341c23,
+  "white": #ffffff,
+  "ivory": #fbe8ea,
+  "rose-mist": #e4b4bc,
+  "rose-ink": #6b3d45,
+  "line-light": #a86b74,
+  "line-soft": #e7cfd2,
+  "line-dark": #c48b96,
+  "line-dark-soft": #5c3842,
+  "wine": #6d2142,
+  "wine-deep": #551933,
+  "wine-deeper": #45142a,
+  "wine-bright": #a84466,
+  "wine-mid": #8e3a56,
+  "vermilion": #c2410c,
+  "vermilion-deep": #9a3412,
+  "vermilion-deeper": #7c2d0f,
+  "brick": #7c3414,
+  "berry": #6b2d5b,
+  "scarlet": #b91c1c,
+  "scarlet-deep": #991b1b,
+  "scarlet-bright": #dc2626,
+  "rose": #9d174d,
+  "blush": #ff8fa3,
+  "blush-soft": #ffb4c2,
+  "mauve": #f6c6d8,
+  "sand": #f3b183,
+  "coral": #fecaca,
+  "orchid": #f9c2de,
+  "peach": #f8c9a8,
+  "wash-primary": #fde8ec,
+  "wash-secondary": #f6e4ec,
+  "wash-accent": #fde8dc,
+  "wash-success": #f6e4f1,
+  "wash-warning": #fdecdc,
+  "wash-error": #fdecec,
+  "wash-info": #fbe4f0,
+  "night-primary": #3d1824,
+  "night-secondary": #3a1828,
+  "night-accent": #3a2218,
+  "night-success": #3a1a2a,
+  "night-warning": #3a2216,
+  "night-error": #3f1618,
+  "night-info": #3a162c
+) !default;
+
+@function crimson-token($name) {
+  @if not map.has-key($crimson-primitives, $name) {
+    @error "Unknown Crimson primitive `#{$name}`.";
+  }
+
+  @return map.get($crimson-primitives, $name);
+}
+
+@mixin crimson-semantic-light {
+  color-scheme: light;
+  --color-bg: var(--crimson-50);
+  --color-surface: var(--white);
+  --color-surface-muted: var(--crimson-100);
+  --color-text: var(--crimson-950);
+  --color-text-muted: var(--rose-ink);
+  --color-text-inverse: var(--white);
+  --color-border: var(--line-light);
+  --color-divider: var(--line-soft);
+  --color-focus: var(--crimson-950);
+  --color-primary: var(--crimson-700);
+  --color-primary-hover: var(--crimson-800);
+  --color-primary-active: var(--crimson-900);
+  --color-on-primary: var(--white);
+  --color-primary-text: var(--crimson-700);
+  --color-primary-subtle: var(--wash-primary);
+  --color-primary-subtle-text: var(--crimson-700);
+  --color-secondary: var(--wine);
+  --color-secondary-hover: var(--wine-deep);
+  --color-secondary-active: var(--wine-deeper);
+  --color-on-secondary: var(--white);
+  --color-secondary-text: var(--wine);
+  --color-secondary-subtle: var(--wash-secondary);
+  --color-secondary-subtle-text: var(--wine);
+  --color-accent: var(--vermilion);
+  --color-accent-hover: var(--vermilion-deep);
+  --color-accent-active: var(--vermilion-deeper);
+  --color-on-accent: var(--white);
+  --color-accent-text: var(--vermilion-deep);
+  --color-accent-subtle: var(--wash-accent);
+  --color-accent-subtle-text: var(--vermilion-deep);
+  --color-success: var(--berry);
+  --color-success-subtle: var(--wash-success);
+  --color-success-text: var(--berry);
+  --color-warning: var(--brick);
+  --color-warning-subtle: var(--wash-warning);
+  --color-warning-text: var(--brick);
+  --color-error: var(--scarlet);
+  --color-error-solid: var(--scarlet);
+  --color-error-solid-hover: var(--scarlet-deep);
+  --color-on-error: var(--white);
+  --color-error-subtle: var(--wash-error);
+  --color-error-text: var(--scarlet);
+  --color-info: var(--rose);
+  --color-info-subtle: var(--wash-info);
+  --color-info-text: var(--rose);
+  --color-link: var(--crimson-700);
+  --color-link-hover: var(--crimson-900);
+}
+
+@mixin crimson-semantic-dark {
+  color-scheme: dark;
+  --color-bg: var(--night-950);
+  --color-surface: var(--night-900);
+  --color-surface-muted: var(--night-800);
+  --color-text: var(--ivory);
+  --color-text-muted: var(--rose-mist);
+  --color-text-inverse: var(--crimson-950);
+  --color-border: var(--line-dark);
+  --color-divider: var(--line-dark-soft);
+  --color-focus: var(--ivory);
+  --color-primary: var(--crimson-500);
+  --color-primary-hover: var(--crimson-600);
+  --color-primary-active: var(--crimson-600);
+  --color-on-primary: var(--white);
+  --color-primary-text: var(--blush);
+  --color-primary-subtle: var(--night-primary);
+  --color-primary-subtle-text: var(--blush);
+  --color-secondary: var(--wine-bright);
+  --color-secondary-hover: var(--wine-mid);
+  --color-secondary-active: var(--wine-mid);
+  --color-on-secondary: var(--white);
+  --color-secondary-text: var(--blush-soft);
+  --color-secondary-subtle: var(--night-secondary);
+  --color-secondary-subtle-text: var(--blush-soft);
+  --color-accent: var(--vermilion);
+  --color-accent-hover: var(--vermilion-deep);
+  --color-accent-active: var(--vermilion-deep);
+  --color-on-accent: var(--white);
+  --color-accent-text: var(--peach);
+  --color-accent-subtle: var(--night-accent);
+  --color-accent-subtle-text: var(--peach);
+  --color-success: var(--mauve);
+  --color-success-subtle: var(--night-success);
+  --color-success-text: var(--mauve);
+  --color-warning: var(--sand);
+  --color-warning-subtle: var(--night-warning);
+  --color-warning-text: var(--sand);
+  --color-error: var(--coral);
+  --color-error-solid: var(--scarlet-bright);
+  --color-error-solid-hover: var(--scarlet);
+  --color-on-error: var(--white);
+  --color-error-subtle: var(--night-error);
+  --color-error-text: var(--coral);
+  --color-info: var(--orchid);
+  --color-info-subtle: var(--night-info);
+  --color-info-text: var(--orchid);
+  --color-link: var(--blush);
+  --color-link-hover: var(--ivory);
+}
+
+:root {
+  @each $name, $value in $crimson-primitives {
+    --#{$name}: #{$value};
+  }
+
+  @include crimson-semantic-light;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    @include crimson-semantic-dark;
+  }
+}
+
+[data-theme="dark"] {
+  @include crimson-semantic-dark;
+}

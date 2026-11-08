@@ -1,0 +1,514 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Crimson UI — a red-family design system</title>
+    <meta name="description" content="Crimson UI is a dependency-free CSS design system. The palette stays in the red family, and text meets WCAG AA.">
+    <meta name="theme-color" content="#9F1239">
+    <script>
+      (function () {
+        var theme = null;
+        try {
+          var query = new URLSearchParams(location.search).get("theme");
+          if (query === "light" || query === "dark") theme = query;
+          if (!theme) theme = localStorage.getItem("crimson-theme");
+        } catch (error) {}
+        if (theme === "light" || theme === "dark") {
+          document.documentElement.setAttribute("data-theme", theme);
+        }
+      })();
+    </script>
+    <link rel="stylesheet" href="../dist/crimson-ui.css">
+    <link rel="stylesheet" href="demo.css">
+  </head>
+  <body id="top">
+    <a class="skip-link btn btn-primary btn-sm" href="#main">Skip to content</a>
+
+    <header class="navbar demo-navbar">
+      <div class="navbar-inner">
+        <a class="navbar-brand" href="#top">Crimson UI</a>
+        <button id="theme-toggle" class="btn btn-outline btn-sm navbar-tool" type="button" aria-pressed="false">Dark mode</button>
+        <input id="nav-toggle" class="navbar-toggle-input" type="checkbox">
+        <label class="navbar-toggle" for="nav-toggle">
+          <span class="navbar-toggle-bar" aria-hidden="true"></span>
+          <span class="sr-only">Menu</span>
+        </label>
+        <nav class="navbar-menu" aria-label="On this page">
+          <a class="navbar-link" href="#palette">Palette</a>
+          <a class="navbar-link" href="#type">Type</a>
+          <a class="navbar-link" href="#buttons">Buttons</a>
+          <a class="navbar-link" href="#forms">Forms</a>
+          <a class="navbar-link" href="#cards">Cards</a>
+          <a class="navbar-link" href="#navigation">Navigation</a>
+          <a class="navbar-link" href="#feedback">Feedback</a>
+        </nav>
+      </div>
+    </header>
+
+    <main id="main">
+      <section class="hero">
+        <div class="wrap hero-grid">
+          <div>
+            <p class="eyebrow">Design system · 1.0.0</p>
+            <h1>Red, with the contrast to prove it.</h1>
+            <p class="lead">Crimson UI is a dependency-free stylesheet. Primary, secondary, accent, and state colors all stay in the red family, and every text pair clears WCAG AA.</p>
+            <div class="btn-row">
+              <a class="btn btn-primary" href="#palette">
+                View the palette
+                <svg viewBox="0 0 20 20" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M4 10h12M12 6l4 4-4 4"></path>
+                </svg>
+              </a>
+              <a class="btn btn-outline" href="#usage">Copy the CSS</a>
+            </div>
+          </div>
+          <ul class="hero-chips" aria-label="Ink families">
+            <li style="background:#9F1239"><span>Crimson</span><code>#9F1239</code></li>
+            <li style="background:#6D2142"><span>Wine</span><code>#6D2142</code></li>
+            <li style="background:#C2410C"><span>Vermilion</span><code>#C2410C</code></li>
+            <li style="background:#6B2D5B"><span>Berry</span><code>#6B2D5B</code></li>
+            <li style="background:#7C3414"><span>Brick</span><code>#7C3414</code></li>
+            <li style="background:#B91C1C"><span>Scarlet</span><code>#B91C1C</code></li>
+            <li style="background:#9D174D"><span>Rose</span><code>#9D174D</code></li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="section" id="palette">
+        <div class="wrap">
+          <div class="section-intro">
+            <p class="eyebrow">Palette</p>
+            <h2>Semantic tokens</h2>
+            <p>These chips follow the active theme. Light hex values sit under each name until you switch to dark.</p>
+          </div>
+          <div class="swatch-grid">
+            <figure class="swatch">
+              <div class="swatch-chip" style="background:var(--color-bg)"></div>
+              <figcaption><strong>Background</strong><span class="role">Page</span><code><span class="hex-light">#FFF5F3</span><span class="hex-dark">#1A0C10</span></code></figcaption>
+            </figure>
+            <figure class="swatch">
+              <div class="swatch-chip" style="background:var(--color-surface)"></div>
+              <figcaption><strong>Surface</strong><span class="role">Cards, fields</span><code><span class="hex-light">#FFFFFF</span><span class="hex-dark">#261318</span></code></figcaption>
+            </figure>
+            <figure class="swatch">
+              <div class="swatch-chip" style="background:var(--color-surface-muted)"></div>
+              <figcaption><strong>Surface muted</strong><span class="role">Wells</span><code><span class="hex-light">#FBECEA</span><span class="hex-dark">#341C23</span></code></figcaption>
+            </figure>
+            <figure class="swatch">
+              <div class="swatch-chip" style="background:var(--color-text)"></div>
+              <figcaption><strong>Text</strong><span class="role">Body</span><code><span class="hex-light">#2B1216</span><span class="hex-dark">#FBE8EA</span></code></figcaption>
+            </figure>
+            <figure class="swatch">
+              <div class="swatch-chip" style="background:var(--color-text-muted)"></div>
+              <figcaption><strong>Muted text</strong><span class="role">Hints</span><code><span class="hex-light">#6B3D45</span><span class="hex-dark">#E4B4BC</span></code></figcaption>
+            </figure>
+            <figure class="swatch">
+              <div class="swatch-chip" style="background:var(--color-border)"></div>
+              <figcaption><strong>Border</strong><span class="role">Controls, 3:1</span><code><span class="hex-light">#A86B74</span><span class="hex-dark">#C48B96</span></code></figcaption>
+            </figure>
+            <figure class="swatch">
+              <div class="swatch-chip" style="background:var(--color-primary)"></div>
+              <figcaption><strong>Primary</strong><span class="role">Crimson</span><code><span class="hex-light">#9F1239</span><span class="hex-dark">#E11D48</span></code></figcaption>
+            </figure>
+            <figure class="swatch">
+              <div class="swatch-chip" style="background:var(--color-secondary)"></div>
+              <figcaption><strong>Secondary</strong><span class="role">Wine</span><code><span class="hex-light">#6D2142</span><span class="hex-dark">#A84466</span></code></figcaption>
+            </figure>
+            <figure class="swatch">
+              <div class="swatch-chip" style="background:var(--color-accent)"></div>
+              <figcaption><strong>Accent</strong><span class="role">Vermilion</span><code><span class="hex-light">#C2410C</span><span class="hex-dark">#C2410C</span></code></figcaption>
+            </figure>
+            <figure class="swatch">
+              <div class="swatch-chip" style="background:var(--color-success)"></div>
+              <figcaption><strong>Success</strong><span class="role">Berry</span><code><span class="hex-light">#6B2D5B</span><span class="hex-dark">#F6C6D8</span></code></figcaption>
+            </figure>
+            <figure class="swatch">
+              <div class="swatch-chip" style="background:var(--color-warning)"></div>
+              <figcaption><strong>Warning</strong><span class="role">Brick</span><code><span class="hex-light">#7C3414</span><span class="hex-dark">#F3B183</span></code></figcaption>
+            </figure>
+            <figure class="swatch">
+              <div class="swatch-chip" style="background:var(--color-error)"></div>
+              <figcaption><strong>Error</strong><span class="role">Scarlet text</span><code><span class="hex-light">#B91C1C</span><span class="hex-dark">#FECACA</span></code></figcaption>
+            </figure>
+            <figure class="swatch">
+              <div class="swatch-chip" style="background:var(--color-error-solid)"></div>
+              <figcaption><strong>Error solid</strong><span class="role">Danger fill</span><code><span class="hex-light">#B91C1C</span><span class="hex-dark">#DC2626</span></code></figcaption>
+            </figure>
+            <figure class="swatch">
+              <div class="swatch-chip" style="background:var(--color-info)"></div>
+              <figcaption><strong>Info</strong><span class="role">Rose</span><code><span class="hex-light">#9D174D</span><span class="hex-dark">#F9C2DE</span></code></figcaption>
+            </figure>
+          </div>
+
+          <h3>Crimson ramp</h3>
+          <p class="muted">The ramp is fixed. Semantic tokens point at it, then swap when the theme changes.</p>
+          <ol class="ramp">
+            <li><i style="background:#FFF5F3"></i><span>50</span><code>#FFF5F3</code></li>
+            <li><i style="background:#FBECEA"></i><span>100</span><code>#FBECEA</code></li>
+            <li><i style="background:#F6D5D8"></i><span>200</span><code>#F6D5D8</code></li>
+            <li><i style="background:#E7B4BA"></i><span>300</span><code>#E7B4BA</code></li>
+            <li><i style="background:#D07A88"></i><span>400</span><code>#D07A88</code></li>
+            <li><i style="background:#E11D48"></i><span>500</span><code>#E11D48</code></li>
+            <li><i style="background:#BE123C"></i><span>600</span><code>#BE123C</code></li>
+            <li><i style="background:#9F1239"></i><span>700</span><code>#9F1239</code></li>
+            <li><i style="background:#881337"></i><span>800</span><code>#881337</code></li>
+            <li><i style="background:#6F102C"></i><span>900</span><code>#6F102C</code></li>
+            <li><i style="background:#2B1216"></i><span>950</span><code>#2B1216</code></li>
+          </ol>
+        </div>
+      </section>
+
+      <section class="section" id="type">
+        <div class="wrap">
+          <div class="section-intro">
+            <p class="eyebrow">Typography</p>
+            <h2>System faces, one scale</h2>
+            <p>Headlines use the serif stack. Interface text uses the sans stack. Nothing is fetched from a font host.</p>
+          </div>
+          <div class="example">
+            <div class="type-row"><span class="meta">5xl</span><h1>Crimson UI</h1></div>
+            <div class="type-row"><span class="meta">4xl</span><h2>Swatches with a job</h2></div>
+            <div class="type-row"><span class="meta">3xl</span><h3>Wine, brick, and rose</h3></div>
+            <div class="type-row"><span class="meta">2xl</span><h4>A deck for the studio wall</h4></div>
+            <div class="type-row"><span class="meta">xl</span><h5>Labels stay readable</h5></div>
+            <div class="type-row"><span class="meta">lg</span><h6>Even the small heading</h6></div>
+            <div class="type-row"><span class="meta">lead</span><p class="lead">Lead text introduces a section without shouting over the headline.</p></div>
+            <div class="type-row"><span class="meta">body</span><p>Body copy is the ink color on warm paper. <a href="#usage">Links stay underlined</a> so color is not the only cue. <span class="muted">Muted text is for hints.</span></p></div>
+            <div class="type-row"><span class="meta">quote</span><blockquote>Color is a material. Keep it in one family, and still let a warning read as a warning.</blockquote></div>
+            <div class="type-row"><span class="meta">code</span><p>Token names look like <code>--color-primary</code> in the mono stack.</p></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="buttons">
+        <div class="wrap">
+          <div class="section-intro">
+            <p class="eyebrow">Buttons</p>
+            <h2>Variants, sizes, rest states</h2>
+            <p>Focus the controls with the keyboard. The ring uses the focus token and sits outside the button.</p>
+          </div>
+          <div class="stack">
+            <div class="example">
+              <p class="example-label">Variants</p>
+              <div class="btn-row">
+                <button class="btn btn-primary" type="button">Primary</button>
+                <button class="btn btn-secondary" type="button">Secondary</button>
+                <button class="btn btn-accent" type="button">Accent</button>
+                <button class="btn btn-danger" type="button">Danger</button>
+                <button class="btn btn-outline" type="button">Outline</button>
+                <button class="btn btn-ghost" type="button">Ghost</button>
+                <a class="btn btn-primary" href="#forms">Link button</a>
+              </div>
+            </div>
+            <div class="example">
+              <p class="example-label">Sizes</p>
+              <div class="btn-row">
+                <button class="btn btn-primary btn-sm" type="button">Small</button>
+                <button class="btn btn-primary" type="button">Default</button>
+                <button class="btn btn-primary btn-lg" type="button">Large</button>
+              </div>
+            </div>
+            <div class="example">
+              <p class="example-label">Disabled</p>
+              <div class="btn-row">
+                <button class="btn btn-primary" type="button" disabled>Cannot save</button>
+                <button class="btn btn-outline" type="button" disabled>Cannot edit</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="forms">
+        <div class="wrap">
+          <div class="section-intro">
+            <p class="eyebrow">Forms</p>
+            <h2>A deck request, with states</h2>
+            <p>Valid and invalid fields use text, a border, and <code>aria-invalid</code>. This form does not send anything.</p>
+          </div>
+          <form id="deck-form" class="card" action="#forms" method="post">
+            <div class="card-header">
+              <h3 class="card-title">Reserve a swatch deck</h3>
+              <p class="muted">Printed on uncoated stock. Ships from the studio.</p>
+            </div>
+            <div class="card-body">
+              <div class="form-row">
+                <div class="field is-valid">
+                  <label class="label" for="name">Name</label>
+                  <input class="input" id="name" name="name" value="Alan" autocomplete="name" aria-describedby="name-msg">
+                  <p class="field-message" id="name-msg">Looks right.</p>
+                </div>
+                <div class="field is-invalid">
+                  <label class="label" for="email">Email <span class="required">*</span></label>
+                  <input class="input" id="email" name="email" type="email" value="alan@" required autocomplete="email" aria-invalid="true" aria-describedby="email-hint email-msg">
+                  <p class="field-hint" id="email-hint">We use this for the shipping note.</p>
+                  <p class="field-message" id="email-msg">Enter a full address, including the domain.</p>
+                </div>
+              </div>
+              <div class="field">
+                <label class="label" for="size">Poster size</label>
+                <div class="select-wrap">
+                  <select class="select" id="size" name="size">
+                    <option>A3, unframed</option>
+                    <option>A2, unframed</option>
+                    <option selected>A1, tube</option>
+                  </select>
+                </div>
+                <p class="field-hint">A1 ships in a tube so the sheet stays flat.</p>
+              </div>
+              <div class="field">
+                <label class="label" for="note">Note for the printer</label>
+                <textarea class="input textarea" id="note" name="note" placeholder="Weight, crop, or a due date">Keep the crimson ramp in reading order, 50 through 950.</textarea>
+              </div>
+              <fieldset class="fieldset">
+                <legend class="label">Paper</legend>
+                <div class="choice-row">
+                  <label class="choice">
+                    <input type="radio" name="paper" value="uncoated" checked>
+                    <span class="choice-control" aria-hidden="true"></span>
+                    <span>Uncoated</span>
+                  </label>
+                  <label class="choice">
+                    <input type="radio" name="paper" value="silk">
+                    <span class="choice-control" aria-hidden="true"></span>
+                    <span>Silk</span>
+                  </label>
+                  <label class="choice">
+                    <input type="radio" name="paper" value="foil">
+                    <span class="choice-control" aria-hidden="true"></span>
+                    <span>Foil</span>
+                  </label>
+                </div>
+              </fieldset>
+              <div class="choice-row">
+                <label class="choice">
+                  <input type="checkbox" name="hex" checked>
+                  <span class="choice-control" aria-hidden="true"></span>
+                  <span>Include the hex sheet</span>
+                </label>
+                <label class="choice">
+                  <input type="checkbox" name="rush" disabled>
+                  <span class="choice-control" aria-hidden="true"></span>
+                  <span>Rush the press (unavailable)</span>
+                </label>
+              </div>
+              <div class="field">
+                <label class="switch">
+                  <input type="checkbox" role="switch" name="notify">
+                  <span class="switch-ui" aria-hidden="true"></span>
+                  <span>Notify me when the deck ships</span>
+                </label>
+              </div>
+              <div class="field">
+                <label class="label" for="locked">Account number</label>
+                <input class="input" id="locked" value="CR-1048" disabled>
+                <p class="field-hint">Assigned by the studio. You cannot edit it here.</p>
+              </div>
+            </div>
+            <div class="card-footer">
+              <div class="btn-row">
+                <button class="btn btn-primary" type="submit">Reserve deck</button>
+                <button class="btn btn-ghost" type="reset">Clear</button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </section>
+
+      <section class="section" id="cards">
+        <div class="wrap">
+          <div class="section-intro">
+            <p class="eyebrow">Cards</p>
+            <h2>Surfaces for a small idea</h2>
+            <p>Interactive cards lift on hover. The motion stops when the system asks for less movement.</p>
+          </div>
+          <div class="card-grid">
+            <article class="card">
+              <div class="card-header">
+                <h3 class="card-title">Token poster</h3>
+              </div>
+              <div class="card-body">
+                <p>One sheet, eleven steps of crimson, and the seven ink families named in the margin.</p>
+              </div>
+              <div class="card-footer">
+                <a class="btn btn-outline btn-sm" href="#palette">See the chips</a>
+              </div>
+            </article>
+            <a class="card card-interactive" href="#buttons">
+              <div class="card-body">
+                <p class="eyebrow">Component</p>
+                <h3 class="card-title">Buttons</h3>
+                <p>Six variants, three sizes, and a disabled state that does not pretend to be clickable.</p>
+              </div>
+            </a>
+            <a class="card card-interactive" href="#feedback">
+              <div class="card-body">
+                <p class="eyebrow">Theme</p>
+                <h3 class="card-title">Light and dark</h3>
+                <p>The same names, different hex values. The toggle on this page writes <code>data-theme</code>.</p>
+              </div>
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="navigation">
+        <div class="wrap">
+          <div class="section-intro">
+            <p class="eyebrow">Navigation</p>
+            <h2>Bar, crumbs, and panels</h2>
+            <p>The bar at the top collapses under 62rem. These panels are radio buttons styled as tabs, so arrow keys move between them without extra script.</p>
+          </div>
+          <div class="stack">
+            <nav class="breadcrumbs" aria-label="Breadcrumb">
+              <ol>
+                <li><a href="#top">Library</a></li>
+                <li><a href="#navigation">Components</a></li>
+                <li aria-current="page">Navigation</li>
+              </ol>
+            </nav>
+            <div class="tabs">
+              <div class="tab-list" role="radiogroup" aria-label="How to read Crimson UI">
+                <div class="tab">
+                  <input class="tab-input" type="radio" name="read-tabs" id="tab-install" checked>
+                  <label class="tab-label" for="tab-install">Install</label>
+                </div>
+                <div class="tab">
+                  <input class="tab-input" type="radio" name="read-tabs" id="tab-tokens">
+                  <label class="tab-label" for="tab-tokens">Tokens</label>
+                </div>
+                <div class="tab">
+                  <input class="tab-input" type="radio" name="read-tabs" id="tab-themes">
+                  <label class="tab-label" for="tab-themes">Themes</label>
+                </div>
+              </div>
+              <div class="tab-panels">
+                <div class="tab-panel" role="region" aria-label="Install">
+                  <p>Link <code>dist/crimson-ui.css</code>. No compile step is required to use the built file.</p>
+                </div>
+                <div class="tab-panel" role="region" aria-label="Tokens">
+                  <p>Override a custom property on <code>:root</code>. Components read the semantic names, not raw hex values.</p>
+                </div>
+                <div class="tab-panel" role="region" aria-label="Themes">
+                  <p>Leave <code>data-theme</code> unset to follow the system. Set it to <code>light</code> or <code>dark</code> to choose.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="feedback">
+        <div class="wrap">
+          <div class="section-intro">
+            <p class="eyebrow">Alerts and badges</p>
+            <h2>State, named out loud</h2>
+            <p>Success is solid, warning is dashed, error is double, info is dotted. The title repeats the state in words.</p>
+          </div>
+          <div class="stack">
+            <div class="alert alert-success" role="status">
+              <p class="alert-title"><span class="alert-mark" aria-hidden="true">✓</span> Saved</p>
+              <p>The swatch deck is reserved under Alan’s name.</p>
+            </div>
+            <div class="alert alert-warning" role="status">
+              <p class="alert-title"><span class="alert-mark" aria-hidden="true">!</span> Check the tube</p>
+              <p>A1 sheets crease when they ship flat. This order will go out in a tube.</p>
+            </div>
+            <div class="alert alert-error" role="alert">
+              <p class="alert-title"><span class="alert-mark" aria-hidden="true">×</span> Email incomplete</p>
+              <p>The address is missing a domain, so the studio cannot send the note.</p>
+            </div>
+            <div class="alert alert-info" role="status">
+              <p class="alert-title"><span class="alert-mark" aria-hidden="true">i</span> Theme</p>
+              <p>Dark mode follows the system until you choose light or dark on this page.</p>
+            </div>
+            <div class="example">
+              <p class="example-label">Badges</p>
+              <div class="badge-row">
+                <span class="badge">Neutral</span>
+                <span class="badge badge-solid">Solid</span>
+                <span class="badge badge-primary">Primary</span>
+                <span class="badge badge-secondary">Secondary</span>
+                <span class="badge badge-accent">Accent</span>
+                <span class="badge badge-success">Success</span>
+                <span class="badge badge-warning">Warning</span>
+                <span class="badge badge-error">Error</span>
+                <span class="badge badge-info">Info</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="usage">
+        <div class="wrap">
+          <div class="section-intro">
+            <p class="eyebrow">Usage</p>
+            <h2>One file, no build</h2>
+            <p>The built stylesheet is <code>dist/crimson-ui.css</code>. Source partials live in <code>src/</code> if you want to import a slice.</p>
+          </div>
+          <div class="example">
+            <pre><code>&lt;link rel="stylesheet" href="dist/crimson-ui.css"&gt;
+
+&lt;button class="btn btn-primary"&gt;Save swatch&lt;/button&gt;
+
+&lt;style&gt;
+  :root {
+    --color-primary: #7f1d1d;
+    --color-primary-hover: #64141f;
+  }
+&lt;/style&gt;</code></pre>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="wrap">
+        <p>Crimson UI 1.0.0 · MIT License · Copyright Alan</p>
+      </div>
+    </footer>
+
+    <script>
+      (function () {
+        var root = document.documentElement;
+        var button = document.getElementById("theme-toggle");
+        var meta = document.querySelector('meta[name="theme-color"]');
+        var form = document.getElementById("deck-form");
+
+        function effective() {
+          var explicit = root.getAttribute("data-theme");
+          if (explicit === "dark" || explicit === "light") return explicit;
+          return window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+        }
+
+        function render() {
+          var mode = effective();
+          button.textContent = mode === "dark" ? "Light mode" : "Dark mode";
+          button.setAttribute("aria-pressed", mode === "dark" ? "true" : "false");
+          if (meta) meta.setAttribute("content", mode === "dark" ? "#1A0C10" : "#9F1239");
+        }
+
+        button.addEventListener("click", function () {
+          var next = effective() === "dark" ? "light" : "dark";
+          root.setAttribute("data-theme", next);
+          try {
+            localStorage.setItem("crimson-theme", next);
+          } catch (error) {}
+          render();
+        });
+
+        var media = window.matchMedia("(prefers-color-scheme: dark)");
+        if (media.addEventListener) media.addEventListener("change", render);
+        render();
+
+        if (form) {
+          form.addEventListener("submit", function (event) {
+            event.preventDefault();
+          });
+        }
+      })();
+    </script>
+  </body>
+</html>
