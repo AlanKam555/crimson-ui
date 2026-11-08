@@ -1,4 +1,4 @@
-/*! Crimson UI v1.0.0 | MIT License | Copyright Alan */
+/*! Crimson UI v1.1.0 | MIT License | Copyright Alan */
 
 /* src/tokens/colors.css */
 /*
@@ -6,10 +6,7 @@
  * Primitives live on :root. Semantic tokens point at them and change
  * with the theme. Text pairs are checked in scripts/check-contrast.js.
  */
-
 :root {
-  color-scheme: light;
-
   --crimson-50: #fff5f3;
   --crimson-100: #fbecea;
   --crimson-200: #f6d5d8;
@@ -21,27 +18,22 @@
   --crimson-800: #881337;
   --crimson-900: #6f102c;
   --crimson-950: #2b1216;
-
   --night-950: #1a0c10;
   --night-900: #261318;
   --night-800: #341c23;
-
   --white: #ffffff;
   --ivory: #fbe8ea;
   --rose-mist: #e4b4bc;
   --rose-ink: #6b3d45;
-
   --line-light: #a86b74;
   --line-soft: #e7cfd2;
   --line-dark: #c48b96;
   --line-dark-soft: #5c3842;
-
   --wine: #6d2142;
   --wine-deep: #551933;
   --wine-deeper: #45142a;
   --wine-bright: #a84466;
   --wine-mid: #8e3a56;
-
   --vermilion: #c2410c;
   --vermilion-deep: #9a3412;
   --vermilion-deeper: #7c2d0f;
@@ -51,7 +43,6 @@
   --scarlet-deep: #991b1b;
   --scarlet-bright: #dc2626;
   --rose: #9d174d;
-
   --blush: #ff8fa3;
   --blush-soft: #ffb4c2;
   --mauve: #f6c6d8;
@@ -59,7 +50,6 @@
   --coral: #fecaca;
   --orchid: #f9c2de;
   --peach: #f8c9a8;
-
   --wash-primary: #fde8ec;
   --wash-secondary: #f6e4ec;
   --wash-accent: #fde8dc;
@@ -67,7 +57,6 @@
   --wash-warning: #fdecdc;
   --wash-error: #fdecec;
   --wash-info: #fbe4f0;
-
   --night-primary: #3d1824;
   --night-secondary: #3a1828;
   --night-accent: #3a2218;
@@ -75,7 +64,7 @@
   --night-warning: #3a2216;
   --night-error: #3f1618;
   --night-info: #3a162c;
-
+  color-scheme: light;
   --color-bg: var(--crimson-50);
   --color-surface: var(--white);
   --color-surface-muted: var(--crimson-100);
@@ -85,7 +74,6 @@
   --color-border: var(--line-light);
   --color-divider: var(--line-soft);
   --color-focus: var(--crimson-950);
-
   --color-primary: var(--crimson-700);
   --color-primary-hover: var(--crimson-800);
   --color-primary-active: var(--crimson-900);
@@ -93,7 +81,6 @@
   --color-primary-text: var(--crimson-700);
   --color-primary-subtle: var(--wash-primary);
   --color-primary-subtle-text: var(--crimson-700);
-
   --color-secondary: var(--wine);
   --color-secondary-hover: var(--wine-deep);
   --color-secondary-active: var(--wine-deeper);
@@ -101,7 +88,6 @@
   --color-secondary-text: var(--wine);
   --color-secondary-subtle: var(--wash-secondary);
   --color-secondary-subtle-text: var(--wine);
-
   --color-accent: var(--vermilion);
   --color-accent-hover: var(--vermilion-deep);
   --color-accent-active: var(--vermilion-deeper);
@@ -109,33 +95,27 @@
   --color-accent-text: var(--vermilion-deep);
   --color-accent-subtle: var(--wash-accent);
   --color-accent-subtle-text: var(--vermilion-deep);
-
   --color-success: var(--berry);
   --color-success-subtle: var(--wash-success);
   --color-success-text: var(--berry);
-
   --color-warning: var(--brick);
   --color-warning-subtle: var(--wash-warning);
   --color-warning-text: var(--brick);
-
   --color-error: var(--scarlet);
   --color-error-solid: var(--scarlet);
   --color-error-solid-hover: var(--scarlet-deep);
   --color-on-error: var(--white);
   --color-error-subtle: var(--wash-error);
   --color-error-text: var(--scarlet);
-
   --color-info: var(--rose);
   --color-info-subtle: var(--wash-info);
   --color-info-text: var(--rose);
-
   --color-link: var(--crimson-700);
   --color-link-hover: var(--crimson-900);
 }
 
 @media (prefers-color-scheme: dark) {
-  :root:not([data-theme="light"]) {
-    /* dark-theme:start */
+  :root:not([data-theme=light]) {
     color-scheme: dark;
     --color-bg: var(--night-950);
     --color-surface: var(--night-900);
@@ -148,21 +128,21 @@
     --color-focus: var(--ivory);
     --color-primary: var(--crimson-500);
     --color-primary-hover: var(--crimson-600);
-    --color-primary-active: var(--crimson-600);
+    --color-primary-active: var(--crimson-700);
     --color-on-primary: var(--white);
     --color-primary-text: var(--blush);
     --color-primary-subtle: var(--night-primary);
     --color-primary-subtle-text: var(--blush);
     --color-secondary: var(--wine-bright);
     --color-secondary-hover: var(--wine-mid);
-    --color-secondary-active: var(--wine-mid);
+    --color-secondary-active: var(--wine);
     --color-on-secondary: var(--white);
     --color-secondary-text: var(--blush-soft);
     --color-secondary-subtle: var(--night-secondary);
     --color-secondary-subtle-text: var(--blush-soft);
     --color-accent: var(--vermilion);
     --color-accent-hover: var(--vermilion-deep);
-    --color-accent-active: var(--vermilion-deep);
+    --color-accent-active: var(--vermilion-deeper);
     --color-on-accent: var(--white);
     --color-accent-text: var(--peach);
     --color-accent-subtle: var(--night-accent);
@@ -184,12 +164,9 @@
     --color-info-text: var(--orchid);
     --color-link: var(--blush);
     --color-link-hover: var(--ivory);
-    /* dark-theme:end */
   }
 }
-
-[data-theme="dark"] {
-  /* dark-theme:start */
+[data-theme=dark] {
   color-scheme: dark;
   --color-bg: var(--night-950);
   --color-surface: var(--night-900);
@@ -202,21 +179,21 @@
   --color-focus: var(--ivory);
   --color-primary: var(--crimson-500);
   --color-primary-hover: var(--crimson-600);
-  --color-primary-active: var(--crimson-600);
+  --color-primary-active: var(--crimson-700);
   --color-on-primary: var(--white);
   --color-primary-text: var(--blush);
   --color-primary-subtle: var(--night-primary);
   --color-primary-subtle-text: var(--blush);
   --color-secondary: var(--wine-bright);
   --color-secondary-hover: var(--wine-mid);
-  --color-secondary-active: var(--wine-mid);
+  --color-secondary-active: var(--wine);
   --color-on-secondary: var(--white);
   --color-secondary-text: var(--blush-soft);
   --color-secondary-subtle: var(--night-secondary);
   --color-secondary-subtle-text: var(--blush-soft);
   --color-accent: var(--vermilion);
   --color-accent-hover: var(--vermilion-deep);
-  --color-accent-active: var(--vermilion-deep);
+  --color-accent-active: var(--vermilion-deeper);
   --color-on-accent: var(--white);
   --color-accent-text: var(--peach);
   --color-accent-subtle: var(--night-accent);
@@ -238,7 +215,6 @@
   --color-info-text: var(--orchid);
   --color-link: var(--blush);
   --color-link-hover: var(--ivory);
-  /* dark-theme:end */
 }
 
 /* src/tokens/typography.css */
@@ -246,12 +222,10 @@
  * Typography tokens.
  * System stacks only: nothing is loaded from a CDN or a font host.
  */
-
 :root {
   --font-sans: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif;
   --font-serif: Palatino, "Palatino Linotype", "Iowan Old Style", Georgia, "Times New Roman", serif;
   --font-mono: ui-monospace, "Cascadia Code", "Segoe UI Mono", "SFMono-Regular", Menlo, Consolas, "Liberation Mono", monospace;
-
   --text-xs: 0.75rem;
   --text-sm: 0.875rem;
   --text-base: 1rem;
@@ -261,16 +235,13 @@
   --text-3xl: 1.875rem;
   --text-4xl: clamp(2rem, 1.55rem + 1.4vw, 2.5rem);
   --text-5xl: clamp(2.35rem, 1.2rem + 2.8vw, 3.5rem);
-
   --leading-tight: 1.15;
   --leading-snug: 1.35;
   --leading-normal: 1.55;
   --leading-relaxed: 1.7;
-
   --tracking-tight: -0.02em;
   --tracking-wide: 0.04em;
   --tracking-caps: 0.14em;
-
   --weight-normal: 400;
   --weight-medium: 500;
   --weight-semibold: 600;
@@ -279,7 +250,6 @@
 
 /* src/tokens/spacing.css */
 /* Spacing scale. 4px base at a 16px root. */
-
 :root {
   --space-0: 0;
   --space-1: 0.25rem;
@@ -298,7 +268,6 @@
 
 /* src/tokens/radii.css */
 /* Corner radii. */
-
 :root {
   --radius-sm: 0.25rem;
   --radius-md: 0.5rem;
@@ -310,7 +279,6 @@
 
 /* src/tokens/shadows.css */
 /* Elevation. Shadows are tinted with the ink color in light mode. */
-
 :root {
   --shadow-sm: 0 1px 2px rgb(43 18 22 / 0.07);
   --shadow-md: 0 8px 24px rgb(43 18 22 / 0.08);
@@ -318,26 +286,20 @@
 }
 
 @media (prefers-color-scheme: dark) {
-  :root:not([data-theme="light"]) {
-    /* shadow-dark:start */
+  :root:not([data-theme=light]) {
     --shadow-sm: 0 1px 2px rgb(0 0 0 / 0.45);
     --shadow-md: 0 10px 28px rgb(0 0 0 / 0.4);
     --shadow-lg: 0 22px 50px rgb(0 0 0 / 0.5);
-    /* shadow-dark:end */
   }
 }
-
-[data-theme="dark"] {
-  /* shadow-dark:start */
+[data-theme=dark] {
   --shadow-sm: 0 1px 2px rgb(0 0 0 / 0.45);
   --shadow-md: 0 10px 28px rgb(0 0 0 / 0.4);
   --shadow-lg: 0 22px 50px rgb(0 0 0 / 0.5);
-  /* shadow-dark:end */
 }
 
 /* src/tokens/motion.css */
 /* Motion tokens. Reduced motion is handled in src/base/focus.css. */
-
 :root {
   --duration-fast: 120ms;
   --duration-base: 180ms;
@@ -346,7 +308,6 @@
 
 /* src/base/reset.css */
 /* Box model and native control inheritance. Component styles build on this. */
-
 *,
 *::before,
 *::after {
@@ -388,7 +349,6 @@ h6 {
 
 /* src/base/typography.css */
 /* Element typography. Class aliases (.h1, .lead, .eyebrow) match the elements. */
-
 body {
   background: var(--color-bg);
   color: var(--color-text);
@@ -439,22 +399,34 @@ h6,
 }
 
 h1,
-.h1 { font-size: var(--text-5xl); }
+.h1 {
+  font-size: var(--text-5xl);
+}
 
 h2,
-.h2 { font-size: var(--text-4xl); }
+.h2 {
+  font-size: var(--text-4xl);
+}
 
 h3,
-.h3 { font-size: var(--text-3xl); }
+.h3 {
+  font-size: var(--text-3xl);
+}
 
 h4,
-.h4 { font-size: var(--text-2xl); }
+.h4 {
+  font-size: var(--text-2xl);
+}
 
 h5,
-.h5 { font-size: var(--text-xl); }
+.h5 {
+  font-size: var(--text-xl);
+}
 
 h6,
-.h6 { font-size: var(--text-lg); }
+.h6 {
+  font-size: var(--text-lg);
+}
 
 p {
   margin: 0 0 var(--space-4);
@@ -564,7 +536,6 @@ hr {
 
 /* src/components/button.css */
 /* Buttons. Add one variant class and, optionally, a size class. */
-
 .btn {
   --btn-bg: transparent;
   --btn-bg-hover: var(--color-primary-subtle);
@@ -595,10 +566,7 @@ hr {
   cursor: pointer;
   user-select: none;
   vertical-align: middle;
-  transition:
-    background-color var(--duration-fast) var(--ease-standard),
-    border-color var(--duration-fast) var(--ease-standard),
-    color var(--duration-fast) var(--ease-standard);
+  transition: background-color var(--duration-fast) var(--ease-standard), border-color var(--duration-fast) var(--ease-standard), color var(--duration-fast) var(--ease-standard);
 }
 
 .btn:hover {
@@ -615,7 +583,7 @@ hr {
 }
 
 .btn:disabled,
-.btn[aria-disabled="true"] {
+.btn[aria-disabled=true] {
   --btn-bg-hover: var(--btn-bg);
   --btn-bg-active: var(--btn-bg);
   --btn-border-hover: var(--btn-border);
@@ -732,7 +700,6 @@ hr {
 
 /* src/components/form.css */
 /* Fields, text controls, choices, and the switch. */
-
 .field {
   display: flex;
   flex-direction: column;
@@ -782,9 +749,7 @@ hr {
   background: var(--color-surface);
   color: var(--color-text);
   line-height: var(--leading-snug);
-  transition:
-    border-color var(--duration-fast) var(--ease-standard),
-    background-color var(--duration-fast) var(--ease-standard);
+  transition: border-color var(--duration-fast) var(--ease-standard), background-color var(--duration-fast) var(--ease-standard);
 }
 
 .textarea {
@@ -888,7 +853,6 @@ hr {
     grid-template-columns: 1fr 1fr;
   }
 }
-
 .fieldset {
   margin: 0 0 var(--space-4);
   padding: var(--space-4);
@@ -942,7 +906,7 @@ hr {
   flex: none;
 }
 
-.choice input[type="radio"] + .choice-control {
+.choice input[type=radio] + .choice-control {
   border-radius: var(--radius-full);
 }
 
@@ -960,7 +924,7 @@ hr {
   transform: translateY(-1px) rotate(-45deg);
 }
 
-.choice input[type="radio"]:checked + .choice-control::after {
+.choice input[type=radio]:checked + .choice-control::after {
   width: 0.5rem;
   height: 0.5rem;
   border: 0;
@@ -1048,7 +1012,6 @@ hr {
 
 /* src/components/card.css */
 /* Cards. .card-interactive lifts on hover. Anchor cards keep body text color. */
-
 .card {
   background: var(--color-surface);
   color: var(--color-text);
@@ -1093,9 +1056,7 @@ a.card:hover {
 }
 
 .card-interactive {
-  transition:
-    transform var(--duration-base) var(--ease-standard),
-    box-shadow var(--duration-base) var(--ease-standard);
+  transition: transform var(--duration-base) var(--ease-standard), box-shadow var(--duration-base) var(--ease-standard);
 }
 
 .card-interactive:hover {
@@ -1105,7 +1066,6 @@ a.card:hover {
 
 /* src/components/nav.css */
 /* Navbar, tab-styled radios, and breadcrumbs. */
-
 .navbar {
   position: sticky;
   top: 0;
@@ -1197,8 +1157,13 @@ a.card:hover {
   left: 0;
 }
 
-.navbar-toggle-bar::before { top: -6px; }
-.navbar-toggle-bar::after { top: 6px; }
+.navbar-toggle-bar::before {
+  top: -6px;
+}
+
+.navbar-toggle-bar::after {
+  top: 6px;
+}
 
 .navbar-menu {
   order: 2;
@@ -1238,7 +1203,7 @@ a.card:hover {
   text-decoration: none;
 }
 
-.navbar-link[aria-current="page"] {
+.navbar-link[aria-current=page] {
   color: var(--color-primary-text);
   box-shadow: inset 0 -2px 0 var(--color-primary);
 }
@@ -1247,11 +1212,9 @@ a.card:hover {
   .navbar-toggle {
     display: none;
   }
-
   .navbar-brand {
     margin-right: var(--space-4);
   }
-
   .navbar-menu {
     display: flex;
     flex-direction: row;
@@ -1264,7 +1227,6 @@ a.card:hover {
     box-shadow: none;
   }
 }
-
 .tabs {
   display: block;
 }
@@ -1370,7 +1332,7 @@ a.card:hover {
   color: var(--color-border);
 }
 
-.breadcrumbs [aria-current="page"] {
+.breadcrumbs [aria-current=page] {
   color: var(--color-text);
   font-weight: var(--weight-semibold);
   text-decoration: none;
@@ -1381,7 +1343,6 @@ a.card:hover {
  * Alerts. Border style differs by state so the message is not carried by color alone.
  * success solid, warning dashed, error double, info dotted.
  */
-
 .alert {
   display: flex;
   flex-direction: column;
@@ -1461,7 +1422,6 @@ a.card:hover {
 
 /* src/components/badge.css */
 /* Badges. State badges use subtle fills so the label stays at body-text contrast. */
-
 .badge {
   display: inline-flex;
   align-items: center;
@@ -1534,7 +1494,6 @@ a.card:hover {
  * Focus, reduced motion, and forced colors.
  * Loaded after components so the forced-colors borders win when that mode is on.
  */
-
 .skip-link {
   position: absolute;
   left: var(--space-4);
@@ -1578,17 +1537,14 @@ a.card:hover {
     transition-duration: 0.01ms !important;
     scroll-behavior: auto !important;
   }
-
   .card-interactive:hover {
     transform: none;
   }
 }
-
 @media (forced-colors: active) {
   :focus-visible {
     outline: 3px solid Highlight;
   }
-
   .btn,
   .input,
   .select,
@@ -1601,7 +1557,6 @@ a.card:hover {
   .navbar {
     border: 1px solid ButtonText;
   }
-
   .btn:disabled,
   .input:disabled,
   .select:disabled,

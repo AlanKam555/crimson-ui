@@ -1,5 +1,4 @@
 /* Spacing scale. 4px base at a 16px root. */
-
 :root {
   --space-0: 0;
   --space-1: 0.25rem;

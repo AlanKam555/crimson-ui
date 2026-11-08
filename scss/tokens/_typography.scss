@@ -1,11 +1,18 @@
+/*
+ * Typography tokens.
+ * System stacks only: nothing is loaded from a CDN or a font host.
+ */
+
+@use "sass:meta";
+
 $font-sans: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif !default;
 $font-serif: Palatino, "Palatino Linotype", "Iowan Old Style", Georgia, "Times New Roman", serif !default;
 $font-mono: ui-monospace, "Cascadia Code", "Segoe UI Mono", "SFMono-Regular", Menlo, Consolas, "Liberation Mono", monospace !default;
 
 :root {
-  --font-sans: #{$font-sans};
-  --font-serif: #{$font-serif};
-  --font-mono: #{$font-mono};
+  --font-sans: #{meta.inspect($font-sans)};
+  --font-serif: #{meta.inspect($font-serif)};
+  --font-mono: #{meta.inspect($font-mono)};
 
   --text-xs: 0.75rem;
   --text-sm: 0.875rem;

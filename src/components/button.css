@@ -1,5 +1,4 @@
 /* Buttons. Add one variant class and, optionally, a size class. */
-
 .btn {
   --btn-bg: transparent;
   --btn-bg-hover: var(--color-primary-subtle);
@@ -30,10 +29,7 @@
   cursor: pointer;
   user-select: none;
   vertical-align: middle;
-  transition:
-    background-color var(--duration-fast) var(--ease-standard),
-    border-color var(--duration-fast) var(--ease-standard),
-    color var(--duration-fast) var(--ease-standard);
+  transition: background-color var(--duration-fast) var(--ease-standard), border-color var(--duration-fast) var(--ease-standard), color var(--duration-fast) var(--ease-standard);
 }
 
 .btn:hover {
@@ -50,7 +46,7 @@
 }
 
 .btn:disabled,
-.btn[aria-disabled="true"] {
+.btn[aria-disabled=true] {
   --btn-bg-hover: var(--btn-bg);
   --btn-bg-active: var(--btn-bg);
   --btn-border-hover: var(--btn-border);

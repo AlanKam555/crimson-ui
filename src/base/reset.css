@@ -1,5 +1,4 @@
 /* Box model and native control inheritance. Component styles build on this. */
-
 *,
 *::before,
 *::after {

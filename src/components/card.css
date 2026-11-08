@@ -1,5 +1,4 @@
 /* Cards. .card-interactive lifts on hover. Anchor cards keep body text color. */
-
 .card {
   background: var(--color-surface);
   color: var(--color-text);
@@ -44,9 +43,7 @@ a.card:hover {
 }
 
 .card-interactive {
-  transition:
-    transform var(--duration-base) var(--ease-standard),
-    box-shadow var(--duration-base) var(--ease-standard);
+  transition: transform var(--duration-base) var(--ease-standard), box-shadow var(--duration-base) var(--ease-standard);
 }
 
 .card-interactive:hover {

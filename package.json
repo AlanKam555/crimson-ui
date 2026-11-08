@@ -1,7 +1,7 @@
 {
   "name": "crimson-ui",
-  "version": "1.0.0",
-  "description": "Crimson UI is a red-family design system shipped as plain CSS custom properties, with an SCSS source mirror.",
+  "version": "1.1.0",
+  "description": "Crimson UI is a red-family design system. SCSS is the source; plain CSS custom properties are generated for the browser.",
   "main": "dist/crimson-ui.css",
   "style": "dist/crimson-ui.css",
   "sass": "scss/crimson-ui.scss",
@@ -27,7 +27,18 @@
   ],
   "author": "Alan",
   "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AlanKam555/crimson-ui.git"
+  },
+  "homepage": "https://github.com/AlanKam555/crimson-ui",
+  "bugs": {
+    "url": "https://github.com/AlanKam555/crimson-ui/issues"
+  },
   "engines": {
     "node": ">=18"
+  },
+  "devDependencies": {
+    "sass": "^1.108.1"
   }
 }

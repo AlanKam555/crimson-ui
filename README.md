@@ -47,7 +47,7 @@ Text colors meet WCAG AA (4.5:1). Control borders and resting button fills meet 
         └── typography.css
 ```
 
-`src/` is the CSS source. `scss/` is the Sass mirror: token partials are maps and mixins, and the base and component partials match the CSS rules. `dist/crimson-ui.css` is the concatenated file the demo loads.
+`scss/` is the hand-written source. `npm run build` compiles each partial `@use`d by `scss/crimson-ui.scss` into `src/`, then concatenates those files into `dist/crimson-ui.css`. A new partial is added in that one `@use` list. The demo loads the concatenated file.
 
 ## Install and usage
 
@@ -67,7 +67,7 @@ To load the unbuilt source instead, link `src/crimson-ui.css`. That file `@impor
 From a project that depends on this folder or a git URL:
 
 ```bash
-npm install git+https://github.com/YOUR_USER/crimson-ui.git
+npm install git+https://github.com/AlanKam555/crimson-ui.git
 ```
 
 The package entry is `dist/crimson-ui.css` (`main` and `style`). The Sass entry is `scss/crimson-ui.scss` (`sass`).
@@ -80,20 +80,22 @@ The package entry is `dist/crimson-ui.css` (`main` and `style`). The Sass entry 
 @use "crimson-ui/scss/crimson-ui";
 ```
 
-There are no runtime dependencies. Rebuild the CSS, if you change `src/`, with Node 18 or newer:
+There are no runtime dependencies. Sass is a development dependency used only to compile. After changing `scss/`, rebuild with Node 18 or newer:
 
 ```bash
+npm install
 npm run build
 ```
 
-`npm run check` reruns the contrast, palette-parity, and SCSS-mirror checks without writing `dist/`.
+`npm run check` confirms `src/` and `dist/` match that compile, and checks contrast for the token custom properties. It does not write files.
 
 ### git
 
 ```bash
-git clone git@github.com:YOUR_USER/crimson-ui.git
+git clone git@github.com:AlanKam555/crimson-ui.git
 cd crimson-ui
-node scripts/build.js
+npm install
+npm run build
 python3 -m http.server 8741
 ```
 
@@ -216,16 +218,18 @@ Semantic colors change with the theme. Primitives do not.
 | `--color-focus` | `#2B1216` | `#FBE8EA` | Focus ring |
 | `--color-primary` | `#9F1239` | `#E11D48` | Crimson fill |
 | `--color-primary-hover` | `#881337` | `#BE123C` | Primary hover fill |
-| `--color-primary-active` | `#6F102C` | `#BE123C` | Primary pressed fill |
+| `--color-primary-active` | `#6F102C` | `#9F1239` | Primary pressed fill |
 | `--color-on-primary` | `#FFFFFF` | `#FFFFFF` | Text on primary fill |
 | `--color-primary-text` | `#9F1239` | `#FF8FA3` | Primary as text |
 | `--color-primary-subtle` | `#FDE8EC` | `#3D1824` | Primary wash |
 | `--color-secondary` | `#6D2142` | `#A84466` | Wine fill |
 | `--color-secondary-hover` | `#551933` | `#8E3A56` | Wine hover |
+| `--color-secondary-active` | `#45142A` | `#6D2142` | Wine pressed fill |
 | `--color-on-secondary` | `#FFFFFF` | `#FFFFFF` | Text on wine |
 | `--color-secondary-text` | `#6D2142` | `#FFB4C2` | Wine as text |
 | `--color-accent` | `#C2410C` | `#C2410C` | Vermilion fill |
 | `--color-accent-hover` | `#9A3412` | `#9A3412` | Vermilion hover |
+| `--color-accent-active` | `#7C2D0F` | `#7C2D0F` | Vermilion pressed fill |
 | `--color-on-accent` | `#FFFFFF` | `#FFFFFF` | Text on vermilion |
 | `--color-accent-text` | `#9A3412` | `#F8C9A8` | Vermilion as text |
 | `--color-success` / `--color-success-text` | `#6B2D5B` | `#F6C6D8` | Berry |
@@ -266,7 +270,7 @@ Override semantic tokens after the stylesheet. Components read the names, so one
 }
 ```
 
-Keep new text colors at 4.5:1 on the surfaces where they appear, and new fills at 4.5:1 with their `--color-on-*` text. `npm run check` guards the stock pairs.
+Keep new text colors at 4.5:1 on the surfaces where they appear, and new fills at 4.5:1 with their `--color-on-*` text. `npm run check` resolves the stock pairs from the generated custom properties.
 
 In Sass, read a primitive at compile time. The function returns the hex from `$crimson-primitives`.
 
