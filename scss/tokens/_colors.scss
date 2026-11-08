@@ -1,3 +1,9 @@
+/*
+ * Crimson UI color tokens.
+ * Primitives live on :root. Semantic tokens point at them and change
+ * with the theme. Text pairs are checked in scripts/check-contrast.js.
+ */
+
 @use "sass:map";
 
 /// Primitive hex values. Semantic tokens reference these custom properties.
@@ -133,21 +139,21 @@ $crimson-primitives: (
   --color-focus: var(--ivory);
   --color-primary: var(--crimson-500);
   --color-primary-hover: var(--crimson-600);
-  --color-primary-active: var(--crimson-600);
+  --color-primary-active: var(--crimson-700);
   --color-on-primary: var(--white);
   --color-primary-text: var(--blush);
   --color-primary-subtle: var(--night-primary);
   --color-primary-subtle-text: var(--blush);
   --color-secondary: var(--wine-bright);
   --color-secondary-hover: var(--wine-mid);
-  --color-secondary-active: var(--wine-mid);
+  --color-secondary-active: var(--wine);
   --color-on-secondary: var(--white);
   --color-secondary-text: var(--blush-soft);
   --color-secondary-subtle: var(--night-secondary);
   --color-secondary-subtle-text: var(--blush-soft);
   --color-accent: var(--vermilion);
   --color-accent-hover: var(--vermilion-deep);
-  --color-accent-active: var(--vermilion-deep);
+  --color-accent-active: var(--vermilion-deeper);
   --color-on-accent: var(--white);
   --color-accent-text: var(--peach);
   --color-accent-subtle: var(--night-accent);

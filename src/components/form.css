@@ -1,5 +1,4 @@
 /* Fields, text controls, choices, and the switch. */
-
 .field {
   display: flex;
   flex-direction: column;
@@ -49,9 +48,7 @@
   background: var(--color-surface);
   color: var(--color-text);
   line-height: var(--leading-snug);
-  transition:
-    border-color var(--duration-fast) var(--ease-standard),
-    background-color var(--duration-fast) var(--ease-standard);
+  transition: border-color var(--duration-fast) var(--ease-standard), background-color var(--duration-fast) var(--ease-standard);
 }
 
 .textarea {
@@ -155,7 +152,6 @@
     grid-template-columns: 1fr 1fr;
   }
 }
-
 .fieldset {
   margin: 0 0 var(--space-4);
   padding: var(--space-4);
@@ -209,7 +205,7 @@
   flex: none;
 }
 
-.choice input[type="radio"] + .choice-control {
+.choice input[type=radio] + .choice-control {
   border-radius: var(--radius-full);
 }
 
@@ -227,7 +223,7 @@
   transform: translateY(-1px) rotate(-45deg);
 }
 
-.choice input[type="radio"]:checked + .choice-control::after {
+.choice input[type=radio]:checked + .choice-control::after {
   width: 0.5rem;
   height: 0.5rem;
   border: 0;

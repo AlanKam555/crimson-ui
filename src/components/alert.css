@@ -2,7 +2,6 @@
  * Alerts. Border style differs by state so the message is not carried by color alone.
  * success solid, warning dashed, error double, info dotted.
  */
-
 .alert {
   display: flex;
   flex-direction: column;

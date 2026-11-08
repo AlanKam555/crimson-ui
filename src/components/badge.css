@@ -1,5 +1,4 @@
 /* Badges. State badges use subtle fills so the label stays at body-text contrast. */
-
 .badge {
   display: inline-flex;
   align-items: center;

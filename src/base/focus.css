@@ -2,7 +2,6 @@
  * Focus, reduced motion, and forced colors.
  * Loaded after components so the forced-colors borders win when that mode is on.
  */
-
 .skip-link {
   position: absolute;
   left: var(--space-4);
@@ -46,17 +45,14 @@
     transition-duration: 0.01ms !important;
     scroll-behavior: auto !important;
   }
-
   .card-interactive:hover {
     transform: none;
   }
 }
-
 @media (forced-colors: active) {
   :focus-visible {
     outline: 3px solid Highlight;
   }
-
   .btn,
   .input,
   .select,
@@ -69,7 +65,6 @@
   .navbar {
     border: 1px solid ButtonText;
   }
-
   .btn:disabled,
   .input:disabled,
   .select:disabled,
